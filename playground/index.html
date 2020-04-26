@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+  <title>vue-sfc-parser-browser</title>
+  <meta charset="utf8" />
+  <script src="http://wzrd.in/standalone/postcss"></script>
+  <script src="vue-sfc-compiler.js"></script>
+</head>
+<body>
+  <h1>Vue SFC Parser Browser</h1>
+  <section>
+    <h2>text:</h2>
+    <pre>
+      <code class="before"></code>
+    </pre>
+  </section>
+  <section>
+    <h2>parsed:</h2>
+    <pre>
+      <code class="after"></code>
+    </pre>
+  </section>
+  <script>
+    const text = "<template><p>foo</p></template>";
+    document.querySelector(".before").textContent = JSON.stringify(text);
+    document.querySelector(".after").innerHTML = JSON.stringify(
+      compiler.parse(text)
+    );
+  </script>
+</body>
